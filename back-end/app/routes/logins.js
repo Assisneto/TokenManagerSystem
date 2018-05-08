@@ -45,17 +45,31 @@ module.exports = (app)=>{
                     res.status(400).json(err)
                     }
             });
-            return;
+           
+        }else{
+            res.format({
+                json : () =>{
+                res.status(200).json()
+                }
+            });
         }
 
        bancoFunc.validar(login,(err,results)=>{
                 results.forEach(element => {
                         console.log('a',element['senha']);
                         console.log('b',login['senha']);
-        ;               if(element['senha']==login['senha']){
-                        console.log('deu certo');
+        ;               if(element['senha']!=login['senha']){
+                            res.format({
+                                json : () =>{
+                                    res.status(400).json() 
+                                }
+                            });
                         }else{
-                            console.log('nao');
+                            res.format({
+                                json : () =>{
+                                    res.status(200).json() 
+                                }
+                            });
                         }
                     
                 });
