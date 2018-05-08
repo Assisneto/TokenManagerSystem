@@ -3,7 +3,7 @@ function createDBconnection(){
     return mysql.createConnection({
             host : 'localhost',
             user : 'root',
-            password : 'assismenina123',
+            password : '',
             database : "TMS"
         });
 }

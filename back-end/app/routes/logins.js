@@ -2,6 +2,12 @@ module.exports = (app)=>{
     let connection = app.infra.connectionFactory();
     let bancoFunc = new app.infra.bancoFunc(connection);
     console.log('Listando....')
+
+    app.get("/",(req, res) => {
+   
+        res.render('home');
+   
+});
     
     app.post("/cadastra", (req, res,next) => {
         
