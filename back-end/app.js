@@ -1,5 +1,5 @@
 let app = require ('./app/config/express')();
 
-
-app.listen(3000, ()=> console.log("Servidor rodando"));
+let porta = process.env.PORT || 3000;
+app.listen(porta, ()=> console.log("Servidor rodando"));
 ;

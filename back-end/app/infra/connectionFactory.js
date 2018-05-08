@@ -1,6 +1,6 @@
 let mysql = require('mysql');
 function createDBconnection(){
-if(process.env.NODE.ENV == 'production')
+if(process.env.NODE.ENV == 'production'){
     let urlDeConexao = process.env.CLEARDB_DATABASE_URL;
     let grupos = urlDeConexao.match(/mysql:\/\/(.*):(.*)@(.*)\/(.*)\?/);
     return mysql.createConnection({
@@ -9,6 +9,13 @@ if(process.env.NODE.ENV == 'production')
             password : grupos[2],
             database : grupos[4]
         });
+    }
+    return mysql.createConnection({
+        host : '',
+        user : '',
+        password : '',
+        database : ''
+    });
 }
 
 module.exports = ()=> createDBconnection

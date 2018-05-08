@@ -6,8 +6,12 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "8.10.0"
+  },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha"
+    "test": "node_modules/mocha/bin/mocha",
+    "start": "node app"
   },
   "author": "",
   "license": "ISC",
